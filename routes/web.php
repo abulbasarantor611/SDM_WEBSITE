@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\UserManagement\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -38,3 +39,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+// xxxxxxxxxxxxxxxxxxxxxx//
+//     Custom Routes     //
+//xxxxxxxxxxxxxxxxxxxxxxx//
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('user/index', [UserController::class,'index'])->name('user.index');
+	Route::get('user/create', [UserController::class,'create'])->name('user.create');
+});
