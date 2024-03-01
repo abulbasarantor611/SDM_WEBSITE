@@ -45,4 +45,6 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('user/index', [UserController::class,'index'])->name('user.index');
 	Route::get('user/create', [UserController::class,'create'])->name('user.create');
+	Route::get('user/edit/{id}', [UserController::class,'edit'])->name('user.edit');
+	Route::get('user/update/{id}', [UserController::class,'update'])->name('user.update');
 });

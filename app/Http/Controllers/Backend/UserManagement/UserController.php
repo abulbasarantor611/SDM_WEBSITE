@@ -18,4 +18,9 @@ class UserController extends Controller
     {
         return view('backend.user_management.user.create');
     }
+    function edit($id): view
+    {   
+        $data['users'] = user::findOrFail($id);
+        return view('backend.user_management.user.edit',$data);
+    }
 }

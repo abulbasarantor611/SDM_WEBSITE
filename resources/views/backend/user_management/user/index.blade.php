@@ -42,7 +42,7 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="#">Edit</a>
+                                                <a class="dropdown-item" href="{{route('user.edit',$user->id)}}">Edit</a>
                                             </div>
                                         </div>
                                     </td>
