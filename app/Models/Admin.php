@@ -1,21 +1,18 @@
 <?php
 
 namespace App\Models;
+use Spatie\Permission\Traits\HasRoles;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-
-class Admin extends Authenticatable
+class Admin extends AuthBaseModel
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
+  
+    use HasRoles;
 
     protected $fillable = [
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     protected $hidden = [
@@ -27,4 +24,8 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    function role(){
+        return $this->belongsTo(Role::class,'role_id');
+    }
 }
