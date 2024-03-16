@@ -20,4 +20,19 @@ class AuthBaseModel extends Authenticatable
     function deleted_user(){
         return $this->belongsTo(Admin::class,'deleted_by');
     }
+
+    function getStatusBadgeClass(){
+        if($this->status ==1 ){
+            return 'badge badge-success';
+        }else{
+            return 'badge badge-warning';
+        }
+    }
+    function getStatus(){
+        if($this->status ==1 ){
+            return 'Active';
+        }else{
+            return 'Deactive';
+        }
+    }
 }
